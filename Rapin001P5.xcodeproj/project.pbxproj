@@ -12,6 +12,7 @@
 		C2294C0A24B5252800AC917F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2294C0924B5252800AC917F /* Assets.xcassets */; };
 		C2294C0D24B5252800AC917F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2294C0B24B5252800AC917F /* LaunchScreen.storyboard */; };
 		C2294C1724B52E6700AC917F /* PinPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2294C1624B52E6700AC917F /* PinPad.swift */; };
+		C2294C1924B648D500AC917F /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2294C1824B648D500AC917F /* BrowserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C2294C0C24B5252800AC917F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2294C0E24B5252800AC917F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2294C1624B52E6700AC917F /* PinPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPad.swift; sourceTree = "<group>"; };
+		C2294C1824B648D500AC917F /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				C2294C0224B5252800AC917F /* AppDelegate.swift */,
 				C2294C1624B52E6700AC917F /* PinPad.swift */,
+				C2294C1824B648D500AC917F /* BrowserViewController.swift */,
 				C2294C0624B5252800AC917F /* Main.storyboard */,
 				C2294C0924B5252800AC917F /* Assets.xcassets */,
 				C2294C0B24B5252800AC917F /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2294C0324B5252800AC917F /* AppDelegate.swift in Sources */,
+				C2294C1924B648D500AC917F /* BrowserViewController.swift in Sources */,
 				C2294C1724B52E6700AC917F /* PinPad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

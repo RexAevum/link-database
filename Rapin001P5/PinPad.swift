@@ -28,6 +28,7 @@ class PinPad: UIViewController {
     //MARK: Other Variables
     var enteredPin: String = ""
     fileprivate let PLACE_HOLDER = "-"
+    fileprivate let PIN_LENGHT = 4
     
     
 
@@ -68,32 +69,52 @@ class PinPad: UIViewController {
         clearAllPinDigits()
     }
     
+    /*
+     set's the appropriate digit
+ */
    @discardableResult func setDigits(givenDigit: Int) -> Bool? {
         if (digit_1.text == PLACE_HOLDER){
             digit_1.text = String(givenDigit)
+            
+            if (enteredPin.count <= PIN_LENGHT){
+                enteredPin += String(givenDigit)
+            }
             return true
         }
         else if (digit_2.text == PLACE_HOLDER){
             digit_2.text = String(givenDigit)
+            
+            if (enteredPin.count < PIN_LENGHT){
+                enteredPin += String(givenDigit)
+            }
             return true
         }
         else if (digit_3.text == PLACE_HOLDER){
             digit_3.text = String(givenDigit)
+            if (enteredPin.count < PIN_LENGHT){
+                enteredPin += String(givenDigit)
+            }
             return true
         }
-        else{
+        else if (digit_4.text == PLACE_HOLDER){
             digit_4.text = String(givenDigit)
-            // all fields are full so need to
+            if (enteredPin.count < PIN_LENGHT){
+                enteredPin += String(givenDigit)
+            }
+            return true
         }
+        // all digits have been set, ignore the input
         return false
     }
     
     fileprivate func clearAllPinDigits() {
        //sleep(5)
+        print(enteredPin)
         digit_1.text = PLACE_HOLDER
         digit_2.text = PLACE_HOLDER
         digit_3.text = PLACE_HOLDER
         digit_4.text = PLACE_HOLDER
+        enteredPin = ""
     }
 
 }

@@ -13,8 +13,9 @@ class BrowserViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
     
    // var webView: WKWebView!
     var passedPin: String? = "0000"
-    var foundURL: URL?
+    var passedURL: URL?
     var homePage: String = "http://www.apple.com"
+    let http = "https://www."
     
 
     @IBOutlet var searchBar: UISearchBar!
@@ -26,7 +27,7 @@ class BrowserViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
         super.viewDidLoad()
         
         printPinToSearchBar.text = passedPin
-        foundURL = URL(string: homePage)
+        passedURL = URL(string: homePage)
         searchBar.text = homePage
   /* programatic way of adding view, will use IB
          
@@ -55,7 +56,7 @@ class BrowserViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
         webViewLink.uiDelegate = self
         webViewLink.navigationDelegate = self
         //creating request for homepage, will be overriden with whatever is found in db
-        let myRequest = URLRequest(url: foundURL!)
+        let myRequest = URLRequest(url: passedURL!)
         webViewLink.load(myRequest)
         
         
@@ -96,10 +97,22 @@ class BrowserViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        let page = searchBar.text
-        let url = URL(string: page!)
+        let searchText = searchBar.text!
+        //the url has to have the correct htp or https otherwise will not load
+        let page: String
+        if ((searchText.range(of: http)) == nil) {
+            page = http + searchText
+        } else{
+            page = searchText
+        }
+        
+        // make a url
+        let url = URL(string: page)
+        
+        // then make a URLRequest
         let request = URLRequest(url: url!)
         
+        // last load the page
         webViewLink.load(request)
        // let
     }

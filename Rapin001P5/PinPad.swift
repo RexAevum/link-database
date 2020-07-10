@@ -46,15 +46,27 @@ class PinPad: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+        case "passPin"?:
+            
+            // pass pin
+            
+            //use segue.destination to set the variables on the other side
+            
+            break
+        default:
+            preconditionFailure("unknown segue")
+        }
     }
-    */
+ 
     
     //MARK: Custom Functions
     
@@ -116,5 +128,6 @@ class PinPad: UIViewController {
         digit_4.text = PLACE_HOLDER
         enteredPin = ""
     }
+    
 
 }

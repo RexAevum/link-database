@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PinPad: UIViewController {
+class PinPad: UIViewController, UITabBarDelegate {
     
     //MARK: Pin Field Link
     
@@ -26,6 +26,7 @@ class PinPad: UIViewController {
     
     
     //MARK: Other Variables
+    @IBOutlet var pinFailed: UILabel!
     var enteredPin: String = ""
     fileprivate let PLACE_HOLDER = "-"
     fileprivate let PIN_LENGHT = 4
@@ -35,7 +36,10 @@ class PinPad: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pinFailed.alpha = 0
+        pinFailed.text = "Unknown PIN"
+        pinFailed.backgroundColor = .red
+        pinFailed.textColor = .black
         clearAllPinDigits()
         // Do any additional setup after loading the view.
     }
@@ -55,12 +59,12 @@ class PinPad: UIViewController {
         // Pass the selected object to the new view controller.
         
         switch segue.identifier {
-        case "passPin"?:
+        case "loadPage"?:
             
             // pass pin
-            
+            let browserView = segue.destination as! BrowserViewController
+            browserView.passedPin = enteredPin
             //use segue.destination to set the variables on the other side
-            
             break
         default:
             preconditionFailure("unknown segue")
@@ -85,6 +89,7 @@ class PinPad: UIViewController {
      set's the appropriate digit
  */
    @discardableResult func setDigits(givenDigit: Int) -> Bool? {
+        pinFailed.alpha = 0
         if (digit_1.text == PLACE_HOLDER){
             digit_1.text = String(givenDigit)
             
@@ -113,11 +118,22 @@ class PinPad: UIViewController {
             if (enteredPin.count < PIN_LENGHT){
                 enteredPin += String(givenDigit)
             }
+            //MARK: chenge view in bar controller
+            if (PinDatabase.sharedInstance.pairDatabase[enteredPin] != nil){
+                PinDatabase.sharedInstance.lastPin = enteredPin
+                tabBarController?.selectedIndex = 1
+                clearAllPinDigits()
+            }
+            else{
+                pinFailed.alpha = 1
+                clearAllPinDigits()
+            }
             return true
         }
         // all digits have been set, ignore the input
         return false
     }
+    
     
     fileprivate func clearAllPinDigits() {
        //sleep(5)

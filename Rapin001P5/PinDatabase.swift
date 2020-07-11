@@ -14,15 +14,24 @@ class PinDatabase{
     static let sharedInstance = PinDatabase()
     
     // database
+    var lastPin: String
     var pinIndex: [String]!
     var pairDatabase: [String : URL]!
     
     private init() {
+        lastPin = String()
         pairDatabase = [:]
         pinIndex = []
         
-        pinIndex[0] = "0000"
+        pinIndex.append("0000")
         pairDatabase["0000"] = URL(string: "https://www.apple.com")
+        
+        pinIndex.append("0001")
+        pairDatabase["0001"] = URL(string: "https://www.google.com")
+        
+        pinIndex.append("0002")
+        pairDatabase["0002"] = URL(string: "https://www.yahoo.com")
+        
     }
     
     //add function to add item to the DB
@@ -48,13 +57,13 @@ class PinDatabase{
     //add function to move item
     
     //add function to load URL
-    func loadPinPage(pin: String) -> () {
+    func returnURLRequest(pin: String) -> URLRequest? {
         // find url from db
         let url = pairDatabase[pin]
         //create url request
         let request = URLRequest(url: url!)
         //segue to BrowserViewController
-        
+        return request
     }
     
     

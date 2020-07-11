@@ -25,10 +25,6 @@ class BrowserViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        printPinToSearchBar.text = passedPin
-        passedURL = URL(string: homePage)
-        searchBar.text = homePage
   /* programatic way of adding view, will use IB
          
         // need to create a confgurator
@@ -55,12 +51,23 @@ class BrowserViewController: UIViewController, WKUIDelegate, WKNavigationDelegat
 */
         webViewLink.uiDelegate = self
         webViewLink.navigationDelegate = self
-        //creating request for homepage, will be overriden with whatever is found in db
-        let myRequest = URLRequest(url: passedURL!)
-        webViewLink.load(myRequest)
+    }
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // upadte pin
+        passedPin = PinDatabase.sharedInstance.lastPin
+        if (PinDatabase.sharedInstance.pairDatabase[passedPin!] == nil){passedPin = "0000"}
         
+        // diplay pin in browser
+        printPinToSearchBar.text = passedPin
+        searchBar.text = PinDatabase.sharedInstance.pairDatabase[passedPin!]?.absoluteString
         
-        // Do any additional setup after loading the view.
+        //load pin request
+        if let request = PinDatabase.sharedInstance.returnURLRequest(pin: passedPin!){
+            webViewLink.load(request)
+        }
+        
     }
     
 

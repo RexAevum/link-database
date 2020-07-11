@@ -9,9 +9,10 @@
 import UIKit
 
 class EditViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,23 +30,39 @@ class EditViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        let nr = PinDatabase.sharedInstance.pairDatabase.count
+        if (nr <= 10){
+            return nr
+        }
+        else{
+            return 10
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        //MARK: Using custom cell
+        //!!!!!!!!
+        //need to cast as! <name of custom cell class>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "link", for: indexPath) as! TableViewCell
+        
+        let gotPin = PinDatabase.sharedInstance.pinIndex[indexPath.row]
+        let url = PinDatabase.sharedInstance.pairDatabase[gotPin]
+        
+        
+       cell.pinField.text = gotPin
+       cell.urlField.text = url?.absoluteString
+        
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

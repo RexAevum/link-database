@@ -55,6 +55,11 @@ class PinDatabase{
     }
     
     //add function to move item
+    func movePair(indexFrom: Int, indexTo: Int) -> () {
+        let temp = pinIndex[indexFrom]
+        pinIndex.remove(at: indexFrom)
+        pinIndex.insert(temp, at: indexTo)
+    }
     
     //add function to load URL
     func returnURLRequest(pin: String) -> URLRequest? {

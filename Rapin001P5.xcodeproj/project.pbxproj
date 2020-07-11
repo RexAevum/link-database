@@ -16,6 +16,7 @@
 		C2294C1D24B7F34D00AC917F /* PinDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2294C1C24B7F34D00AC917F /* PinDatabase.swift */; };
 		C2294C1F24B80D2000AC917F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2294C1E24B80D2000AC917F /* EditViewController.swift */; };
 		C2294C2324B9844700AC917F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2294C2224B9844600AC917F /* TableViewCell.swift */; };
+		C2294C2524BA6C0000AC917F /* DetailEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2294C2424BA6C0000AC917F /* DetailEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C2294C1C24B7F34D00AC917F /* PinDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDatabase.swift; sourceTree = "<group>"; };
 		C2294C1E24B80D2000AC917F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		C2294C2224B9844600AC917F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C2294C2424BA6C0000AC917F /* DetailEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				C2294C0224B5252800AC917F /* AppDelegate.swift */,
 				C2294C1C24B7F34D00AC917F /* PinDatabase.swift */,
 				C2294C2224B9844600AC917F /* TableViewCell.swift */,
+				C2294C2424BA6C0000AC917F /* DetailEditViewController.swift */,
 				C2294C1E24B80D2000AC917F /* EditViewController.swift */,
 				C2294C1624B52E6700AC917F /* PinPad.swift */,
 				C2294C1824B648D500AC917F /* BrowserViewController.swift */,
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2294C1F24B80D2000AC917F /* EditViewController.swift in Sources */,
+				C2294C2524BA6C0000AC917F /* DetailEditViewController.swift in Sources */,
 				C2294C1D24B7F34D00AC917F /* PinDatabase.swift in Sources */,
 				C2294C0324B5252800AC917F /* AppDelegate.swift in Sources */,
 				C2294C2324B9844700AC917F /* TableViewCell.swift in Sources */,

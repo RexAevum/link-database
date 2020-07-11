@@ -45,7 +45,7 @@
                                 <connections>
                                     <outlet property="pinField" destination="OgZ-hB-xDc" id="dfE-6p-0g2"/>
                                     <outlet property="urlField" destination="tOi-bo-rDJ" id="36p-QM-HYG"/>
-                                    <segue destination="4PV-mf-5iu" kind="show" id="Mbl-p9-mhN"/>
+                                    <segue destination="4PV-mf-5iu" kind="show" identifier="details" id="Mbl-p9-mhN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" title="Edit" id="m4E-QH-jNV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WZ4-wU-MTl">
                             <connections>
-                                <segue destination="4PV-mf-5iu" kind="show" id="bNi-FL-Hsv"/>
+                                <segue destination="4PV-mf-5iu" kind="show" identifier="addNew" id="bNi-FL-Hsv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="-295.19999999999999" y="-867.61619190404804"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Edit View Controller-->
         <scene sceneID="aAi-ur-Dwb">
             <objects>
-                <viewController id="4PV-mf-5iu" sceneMemberID="viewController">
+                <viewController id="4PV-mf-5iu" customClass="DetailEditViewController" customModule="Rapin001P5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Adc-aA-lPL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,6 +81,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4PV-mf-5iu" id="eGb-Ow-AxT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="URL" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3rb-ii-9D1">
                                 <rect key="frame" x="16" y="308" width="343" height="30"/>
@@ -88,11 +91,18 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4PV-mf-5iu" id="fm2-hP-V0L"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nYk-Zd-ysJ"/>
                     </view>
+                    <connections>
+                        <outlet property="pinField" destination="XlP-dS-bzm" id="TSM-aC-mb8"/>
+                        <outlet property="urlField" destination="3rb-ii-9D1" id="m1B-y0-2LA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7d-h4-dHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

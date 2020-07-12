@@ -1,10 +1,9 @@
-//
-//  DetailEditViewController.swift
-//  Rapin001P5
-//
-//  Created by Rolans Apinis on 7/11/20.
-//  Copyright © 2020 Rolans Apinis. All rights reserved.
-//
+//  PROGRAMMER: Rolans Apinis
+//  PANTHERID: 6044121
+//  CLASS: COP 465501 TR 5:00
+//  INSTRUCTOR: Steve Luis ECS 282
+//  ASSIGNMENT: Programming Assignment #4
+//  DUE: Thursday 07/05/2020 //
 
 import UIKit
 
@@ -20,7 +19,7 @@ class DetailEditViewController: UIViewController, UITextFieldDelegate {
     var url: URL = URL(string: "http://www.apple.com")!
     
     override func viewDidLoad() {
-        pinField.keyboardType = .numberPad
+        pinField.keyboardType = .namePhonePad
         urlField.keyboardType = .URL
         
         pinField.clearButtonMode = .whileEditing
@@ -44,8 +43,9 @@ class DetailEditViewController: UIViewController, UITextFieldDelegate {
         let oldPinIndex = PinDatabase.sharedInstance.pinIndex.index(of: oldPin)
         
         //update DB
+            
         PinDatabase.sharedInstance.pinIndex[oldPinIndex!] = pin!
-        PinDatabase.sharedInstance.pairDatabase.removeValue(forKey: oldPin)
+        PinDatabase.sharedInstance.pairDatabase.removeValue(forKey: self.oldPin)
         // will create new if key does not exist
         PinDatabase.sharedInstance.pairDatabase.updateValue(url!, forKey: pin!)
     }
@@ -89,3 +89,4 @@ class DetailEditViewController: UIViewController, UITextFieldDelegate {
     */
 
 }
+

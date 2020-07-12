@@ -1,10 +1,9 @@
-//
-//  PinPad.swift
-//  Rapin001P5
-//
-//  Created by Rolans Apinis on 7/7/20.
-//  Copyright © 2020 Rolans Apinis. All rights reserved.
-//
+//  PROGRAMMER: Rolans Apinis
+//  PANTHERID: 6044121
+//  CLASS: COP 465501 TR 5:00
+//  INSTRUCTOR: Steve Luis ECS 282
+//  ASSIGNMENT: Programming Assignment #4
+//  DUE: Thursday 07/05/2020 //
 
 import UIKit
 
@@ -125,8 +124,18 @@ class PinPad: UIViewController, UITabBarDelegate {
                 clearAllPinDigits()
             }
             else{
-                pinFailed.alpha = 1
-                clearAllPinDigits()
+                // add alert for when code is wrong
+                let title = "Pin not found!"
+                let message = "The code you have entered does not have a corresponding website assoiciated with it."
+                let alertControl = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let alertOk = UIAlertAction(title: "OK", style: .cancel, handler: {(action) -> Void in
+                    self.clearAllPinDigits()
+                })
+                alertControl.addAction(alertOk)
+                present(alertControl, animated: true, completion: nil)
+                
+                
+                
             }
             return true
         }
